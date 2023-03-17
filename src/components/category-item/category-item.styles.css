@@ -1,7 +1,9 @@
 .hover-border-black:hover {
     border-color: rgb(0, 0, 0);
+    background: rgb(203, 203, 203);
 }
 
 .hover-border-black {
     border: 1px solid transparent;
+
 }

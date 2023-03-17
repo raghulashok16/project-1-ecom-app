@@ -2,6 +2,38 @@
     background-color: rgb(253, 249, 0);
 }
 
-.black-logo {
-    color: black !important;
+@media (min-width: 576px) {
+    .scrollable-menu {
+        max-height: 280px;
+        width: 60vw;
+        overflow-y: auto;
+    }
+}
+
+@media (min-width: 768px) {
+    .scrollable-menu {
+        max-height: 280px;
+        width: 55vw;
+        overflow-y: auto;
+    }
+}
+
+@media (min-width: 992.98px) {
+    .scrollable-menu {
+        max-height: 280px;
+        width: 40vw;
+        overflow-y: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .scrollable-menu {
+        max-height: 400px;
+        width: 30vw;
+        overflow-y: auto;
+    }
+}
+
+.dropdown-toggle::before {
+    display: none !important;
 }

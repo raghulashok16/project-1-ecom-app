@@ -6,8 +6,10 @@ google sign-in
 */
 import Button from 'react-bootstrap/Button';
 const ButtonTypeClasses = {
-    google: 'google-sign-in',
+    google: 'primary',
     inverted: 'inverted',
+    darkInverted: 'outline-dark',
+    secondary: 'outline-secondary',
 
 }
 
@@ -15,7 +17,7 @@ const BstButton = ({ children, buttonType, ...otherProps }) => {
     return (
         <Button
             // className={`button-container ${ButtonTypeClasses[buttonType]} `}
-            variant="primary"
+            variant={`${ButtonTypeClasses[buttonType]}`}
             {...otherProps}>
             {children}
         </Button>

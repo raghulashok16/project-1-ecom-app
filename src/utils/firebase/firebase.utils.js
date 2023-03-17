@@ -1,9 +1,23 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
+import {
+    getAuth,
+    signInWithPopup,
+    GoogleAuthProvider,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged,
+} from 'firebase/auth';
+import {
+    getFirestore,
+    doc,
+    getDoc,
+    setDoc,
+    collection,
+    writeBatch,
+    query,
+    getDocs,
+} from 'firebase/firestore';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -23,21 +37,40 @@ googleprovider.setCustomParameters({
 });
 
 export const auth = getAuth();
+
 export const signInWithGooglePopup = () => signInWithPopup(auth, googleprovider);
-export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleprovider);
 
 export const db = getFirestore();
-export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
-    // if (!userAuth) return;
-    // console.log(userAuth.email);
-    const userDocRef = doc(db, 'users', userAuth.uid);
-    // console.log(userDocRef);
-    const userSnapshot = await getDoc(userDocRef);
-    // console.log(additionalInformation);
-    // console.log(userSnapshot.exists());
-    //if user data does not exists
 
-    // set/create the doc with the data from userAuth in my collection
+// to push our product array into fire store database........
+
+export const addCollectionAndDocument = async (collectionkey, objectsToAdd) => {
+    const collectionRef = collection(db, collectionkey);
+    const batch = writeBatch(db);
+    objectsToAdd.forEach((object) => {
+        const docRef = doc(collectionRef, object.title.toLowerCase());
+        batch.set(docRef, object);
+    });
+    await batch.commit();
+    console.log("done");
+};
+
+export const getCategoriesAndDocuments = async () => {
+    const collectionRef = collection(db, 'categories');
+    const q = query(collectionRef);
+    const querySnapshot = await getDocs(q);
+    const categoryMap = querySnapshot.docs.reduce((acc, docSnapshot) => {
+        const { title, items } = docSnapshot.data();
+        acc[title.toLowerCase()] = items;
+        return acc;
+    }, {});
+    return categoryMap;
+}
+
+
+export const createUserDocumentFromAuth = async (userAuth, additionalInformation = {}) => {
+    const userDocRef = doc(db, 'users', userAuth.uid);
+    const userSnapshot = await getDoc(userDocRef);
     if (!userSnapshot.exists()) {
         const { displayName, email } = userAuth;
         const createdAt = new Date();
@@ -48,10 +81,19 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
         }
     }
     return userDocRef;
-    //if data exists
 }
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
     if (!email || !password) return;
-    // console.log(auth);
     return await createUserWithEmailAndPassword(auth, email, password);
 }
+
+export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+    if (!email || !password) return;
+    return await signInWithEmailAndPassword(auth, email, password);
+}
+
+export const signOutUser = async () => signOut(auth);
+
+export const onAuthStateChangedListner = (callback) => {
+    onAuthStateChanged(auth, callback);
+};

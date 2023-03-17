@@ -1,39 +1,59 @@
 import { Outlet, Link } from "react-router-dom";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { ReactComponent as Cyclogo } from '../../assets/cycle.svg';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import Cart from "../../components/cart/cart.component";
 import './navigation.styles.css';
+import { UserContext } from "../../contexts/user.context";
+import { signOutUser } from "../../utils/firebase/firebase.utils";
+
+
 const Navigation = () => {
+    const { currentUser } = useContext(UserContext);
+
     return (
         <Fragment>
-            <Navbar expand="lg" className="nav-bg-color px-3 ">
+
+            <Navbar expand="sm" className="nav-bg-color px-3 ">
                 <Container fluid>
-                    <Navbar.Brand href="#home">
+                    <Navbar.Brand>
                         <Link className="logo-container" to="/">
-                            < Cyclogo className="logo black-logo" />
+                            < Cyclogo className="text-black" />
                         </Link>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
-                            <Nav.Link href="#home">
-                                <Link className="nav-link active" to="/shop">
-                                    SHOP
-                                </Link>
-                            </Nav.Link>
-                            <Nav.Link href="#link">
-                                <Link className="nav-link active" to="/auth">
-                                    SIGN IN
-                                </Link>
-                            </Nav.Link>
+                            <Link className="nav-link active" to="/shop">
+                                SHOP
+                            </Link>
+                            {
+                                currentUser ?
+                                    (<Link className="nav-link active" onClick={signOutUser}>
+                                        SIGN OUT
+                                    </Link>) :
+                                    (<Link className="nav-link active" to="/auth">
+                                        SIGN IN
+                                    </Link>)
+                            }
+
+                            <Cart />
+
+
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
+            {
+                currentUser ?
+                    (<p className="ms-2 mt-2">Welcome &spades;{currentUser.displayName} ,</p>) :
+                    (<></>)
+            }
+
             <Outlet />
-        </Fragment>
+        </Fragment >
     );
 }
 export default Navigation;
