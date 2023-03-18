@@ -5,46 +5,46 @@ import Row from 'react-bootstrap/Row';
 const categories = [
     {
         "id": 1,
-        "title": "Hat",
+        "title": "Hats",
         "imageUrl": "https://images.bewakoof.com/t1080/panda-camo-baseball-cap-548242-1672908087-1.jpg",
         "route": 'shop/hats'
     },
     {
         "id": 2,
-        "title": "Men",
+        "title": "Mens",
         "imageUrl": "https://images.bewakoof.com/t1080/create-good-stories-half-sleeve-t-shirt-black-283013-1655749405-1.jpg",
-        "route": 'shop/men'
+        "route": 'shop/mens'
     },
 
     {
         "id": 3,
-        "title": "Women",
+        "title": "Womens",
         "imageUrl": "https://images.bewakoof.com/t1080/women-s-black-one-with-the-universe-graphic-printed-boyfriend-t-shirt-483055-1655748960-1.jpg",
-        "route": 'shop/women'
+        "route": 'shop/womens'
     },
     {
         "id": 4,
-        "title": "Sneaker",
+        "title": "Sneakers",
         "imageUrl": "https://images.bewakoof.com/t1080/men-s-seagreen-color-block-casual-shoes-582195-1677831324-1.JPG",
-        "route": 'shop/sneaker'
+        "route": 'shop/sneakers'
     },
     {
         "id": 5,
-        "title": "Jacket",
+        "title": "Jackets",
         "imageUrl": "https://images.bewakoof.com/t1080/men-s-white-color-block-windcheater-491990-1664882378-2.jpg",
-        "route": 'shop/jacket'
+        "route": 'shop/jackets'
     },
     {
         "id": 6,
-        "title": "Mug",
+        "title": "Mugs",
         "imageUrl": "https://images.bewakoof.com/t1080/aot-emblems-coffee-mug-320-ml-554204-1668595701-1.jpg",
-        "route": 'shop/hats'
+        "route": 'shop/mugs'
     },
     {
         "id": 7,
-        "title": "Mobile Cover",
+        "title": "Mobile Covers",
         "imageUrl": "https://images.bewakoof.com/t1080/japanese-animated-premium-glass-case-for-apple-iphone-14-pro-max-shock-proof-scratch-resistant-560357-1670852932-1.jpg",
-        "route": 'shop/hats'
+        "route": 'shop/covers'
     },
 
 ]
