@@ -35,15 +35,15 @@ const CheckOut = () => {
 
                             {
                                 cartItems.length !== 0 ?
-                                    (<tr>
+                                    (<tr >
                                         <td className="text-muted text-uppercase">Total</td>
                                         <td className="fw-bolder"></td>
                                         <td className="fw-bolder"></td>
                                         <td className="fw-bolder"></td>
-                                        <td className="fw-bolder">₹ {total}</td>
+                                        <td className="fw-bolder py-4 fs-5">₹ {total}</td>
                                     </tr>)
                                     : (<tr>
-                                        <td colSpan={5} className='text-center text-muted text-uppercase'>Your Cart is Empty</td>
+                                        <td colSpan={5} className='text-center text-muted text-uppercase '>Your Cart is Empty</td>
                                     </tr>)
                             }
 

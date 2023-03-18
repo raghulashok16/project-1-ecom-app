@@ -8,6 +8,7 @@ import Cart from "../../components/cart/cart.component";
 import './navigation.styles.css';
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
+import Footer from "../../components/footer/footer.component";
 
 
 const Navigation = () => {
@@ -54,6 +55,7 @@ const Navigation = () => {
             }
 
             <Outlet />
+            <Footer />
         </Fragment >
     );
 }

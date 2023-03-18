@@ -58,13 +58,7 @@ const SHOP_DATA = [
                 mrp: 250,
                 price: 150
             },
-            {
-                id: 9,
-                name: 'Down Town',
-                imageUrl: 'https://images.bewakoof.com/t1080/downtown-baller-baseball-cap-547794-1672908003-1.jpg',
-                mrp: 250,
-                price: 150
-            },
+
         ],
     },
     {
