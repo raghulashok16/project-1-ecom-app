@@ -12,11 +12,11 @@ const CheckOut = () => {
     const { cartItems, total } = useContext(CartContext);
     console.log(cartItems.length)
     return (
-        <Container className='my-4 px-5'>
+        <Container className='my-4 '>
             <Row className='justify-content-center'>
                 <Col sm={12} md={10} xl={8}>
 
-                    <Table className='bg-light shadow-sm text-center align-middle mb-0'>
+                    <Table className='bg-light shadow-sm text-center align-middle mb-0 '>
                         <thead>
                             <tr>
                                 <th>Product</th>
@@ -32,23 +32,24 @@ const CheckOut = () => {
                                     <CheckOutItem key={cartItem.id} cartItem={cartItem} />
                                 ))
                             }
+
+                            {
+                                cartItems.length !== 0 ?
+                                    (<tr>
+                                        <td className="text-muted text-uppercase">Total</td>
+                                        <td className="fw-bolder"></td>
+                                        <td className="fw-bolder"></td>
+                                        <td className="fw-bolder"></td>
+                                        <td className="fw-bolder">₹ {total}</td>
+                                    </tr>)
+                                    : (<tr>
+                                        <td colSpan={5} className='text-center text-muted text-uppercase'>Your Cart is Empty</td>
+                                    </tr>)
+                            }
+
                         </tbody>
                     </Table>
-                    <div className="d-flex justify-content-between p-5 bg-light mt-0 fs-4">
-                        {
 
-                            cartItems.length !== 0 ?
-                                (<>
-                                    <small className="text-muted text-uppercase">Total</small>
-                                    <small className="fw-bolder">₹ {total}</small>
-                                </>)
-                                : (<>
-                                    <small className="text-muted text-uppercase">Your Cart is Empty</small>
-
-                                </>)
-                        }
-
-                    </div>
                 </Col>
             </Row>
         </Container>

@@ -11,7 +11,7 @@ const CategoryItem = ({ category }) => {
     }
     // const { imageUrl, title } = category;
     return (
-        <Col xs={8} sm={6} md={5} lg={4} xl={3} className='mb-3 px-1'>
+        <Col xs={6} sm={6} md={5} lg={4} xl={3} className='mb-3 px-1'>
             <div className="hover-border-black ">
 
                 <Card className='rounded-0 shadow-lg'>

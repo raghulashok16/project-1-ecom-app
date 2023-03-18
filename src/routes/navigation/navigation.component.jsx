@@ -12,6 +12,7 @@ import { signOutUser } from "../../utils/firebase/firebase.utils";
 
 const Navigation = () => {
     const { currentUser } = useContext(UserContext);
+    // console.log(currentUser);
 
     return (
         <Fragment>
@@ -48,7 +49,7 @@ const Navigation = () => {
             </Navbar>
             {
                 currentUser ?
-                    (<p className="ms-2 mt-2">Welcome &spades;{currentUser.displayName} ,</p>) :
+                    (<p className="ms-2 mt-2">Logged in with email : {currentUser.email}</p>) :
                     (<></>)
             }
 
