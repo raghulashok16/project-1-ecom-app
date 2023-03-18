@@ -20,7 +20,8 @@ const Cart = () => {
                     drop="start"
                     data-toggle="dropdown"
                     variant="link"
-                    title=< Cartlogo className="mb-1 text-black" />
+                    className='ms-3 mt-1'
+                    title=< Cartlogo className="text-black position-absolute bottom-0 end-0 translate-middle-x" />
                 >
                     <ul className="scrollable-menu text-center p-0">
                         {
