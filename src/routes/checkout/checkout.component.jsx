@@ -39,8 +39,7 @@ const CheckOut = () => {
                                         <td className="text-muted text-uppercase">Total</td>
                                         <td className="fw-bolder"></td>
                                         <td className="fw-bolder"></td>
-                                        <td className="fw-bolder"></td>
-                                        <td className="fw-bolder py-4 fs-5">₹ {total}</td>
+                                        <td className="fw-bolder py-4 fs-5" colSpan={2}>₹ {total}</td>
                                     </tr>)
                                     : (<tr>
                                         <td colSpan={5} className='text-center text-muted text-uppercase '>Your Cart is Empty</td>
