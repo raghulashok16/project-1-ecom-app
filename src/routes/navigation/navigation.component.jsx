@@ -18,7 +18,7 @@ const Navigation = () => {
     return (
         <Fragment>
 
-            <Navbar expand=" " className="nav-bg-color px-3 ">
+            <Navbar expand="sm" className="nav-bg-color px-3 ">
                 <Container fluid>
                     <Navbar.Brand>
                         <Link className="logo-container" to="/">
