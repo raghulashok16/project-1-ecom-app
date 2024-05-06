@@ -1,3 +1,1 @@
-Netlify link for this react project...
-
-https://delter.netlify.app/
+https://delter-basic-ecommerce-project.netlify.app/
