@@ -1,1 +1,4 @@
-https://delter-basic-ecommerce-project.netlify.app/
+-react
+-react-bootstrap
+-react-router
+-firebase
